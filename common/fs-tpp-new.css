@@ -1,0 +1,260 @@
+:root {
+	--default-button-background: white;
+	--color-accent-default: #3288C3;
+	--color-state-modified: #B5834D;
+	--color-state-workflow: #943233;
+	--color-state-released: #56B525;
+}
+
+.tpp-borders {
+	position: fixed;
+	z-index: 9999999999;
+	opacity: 0;
+	pointer-events: none;
+	box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 5px;
+	border: 1px solid var(--color-accent-default);
+	transition: opacity 0.25s;
+}
+.tpp-borders::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 0 0 99999px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.tpp-borders:hover::after {
+  opacity: 1;
+}
+.tpp-buttons {
+	pointer-events: all;
+	position: absolute;
+	top: 0; right: 0;
+	background: linear-gradient(#626161, #424141);
+	border: 1px solid #B5B5B5;
+	display: inline-block;
+	line-height: 1em;
+	height: 1em;
+	box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.5);
+	font-size: 24px;
+	font-family: Arial,Verdana, Helvetica, sans-serif;
+}
+.tpp-buttons.bottom {
+	top: auto;
+	bottom: 0;
+}
+.tpp-invisible .tpp-borders {
+	opacity: 0 !important;
+}
+
+.tpp-button {
+	display: block; float: left;
+	width: 1em; height: 1em; line-height: 23px;
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center;
+	user-select: none;
+}
+.tpp-button[disabled] {
+	filter: grayscale(100%);
+	opacity: .3;
+	cursor: default;
+	pointer-events: none;
+}
+
+.tpp-button::after {
+	display: block;
+	content: '';
+	height: 100%;
+	background: var(--default-button-background);
+}
+
+.tpp-button.tpp-separator {
+	border-right: 1px solid #727177;
+}
+.tpp-icon-action {
+	-webkit-mask: url(tpp-icon/action.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/action.svg) center center / cover no-repeat;
+}
+.tpp-icon-edit {
+	background: var(--color-accent-default);
+}
+.tpp-icon-edit::after {
+	-webkit-mask: url(tpp-icon/edit.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/edit.svg) center center / cover no-repeat;
+}
+.tpp-icon-meta-data::after {
+	-webkit-mask: url(tpp-icon/meta-data.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/meta-data.svg) center center / cover no-repeat;
+}
+.tpp-icon-edit-gray::after {
+	-webkit-mask: url(tpp-icon/edit.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/edit.svg) center center / cover no-repeat;
+}
+.tpp-icon-debug::after {
+	-webkit-mask: url(tpp-icon/debug.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/debug.png) center center / cover no-repeat;
+}
+.tpp-icon-delete::after {
+	-webkit-mask: url(tpp-icon/delete.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/delete.svg) center center / cover no-repeat;
+}
+.tpp-icon-add-section::after {
+	-webkit-mask: url(tpp-icon/add-section.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/add-section.svg) center center / cover no-repeat;
+}
+.tpp-icon-create-page::after {
+	-webkit-mask: url(tpp-icon/create-page.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/create-page.svg) center center / cover no-repeat;
+}
+.tpp-icon-crop-image::after {
+	-webkit-mask: url(tpp-icon/crop-image.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/crop-image.svg) center center / cover no-repeat;
+}
+.tpp-icon-translate::after {
+	-webkit-mask: url(tpp-icon/translate.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/translate.svg) center center / cover no-repeat;
+}
+.tpp-icon-bookmark-create::after {
+	-webkit-mask: url(tpp-icon/bookmark-create.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/bookmark-create.svg) center center / cover no-repeat;
+}
+.tpp-icon-bookmark-delete::after {
+	-webkit-mask: url(tpp-icon/bookmark-delete.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/bookmark-delete.svg) center center / cover no-repeat;
+}
+.tpp-icon-workflow {
+	background: transparent url(tpp-icon/workflow.png) no-repeat center;
+}
+.tpp-icon-workflow-changed {
+	background: var(--color-state-modified) url(tpp-icon/workflow.png) no-repeat center;
+}
+.tpp-icon-workflow-released {
+	background: var(--color-state-released) url(tpp-icon/workflow.png) no-repeat center;
+}
+.tpp-icon-workflow-in-progress {
+	background: var(--color-state-workflow) url(tpp-icon/workflow.png) no-repeat center;
+}
+.tpp-icon-workflow::after,
+.tpp-icon-workflow-changed::after,
+.tpp-icon-workflow-released::after,
+.tpp-icon-workflow-in-progress::after {
+	background: transparent;
+}
+.tpp-icon-move::after {
+	-webkit-mask: url(tpp-icon/move.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/move.png) center center / cover no-repeat;
+}
+.tpp-icon-preview-diff::after {
+	-webkit-mask: url(tpp-icon/preview-diff.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/preview-diff.svg) center center / cover no-repeat;
+}
+.tpp-icon-arrow-left::after {
+	-webkit-mask: url(tpp-icon/move-left.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/move-left.svg) center center / cover no-repeat;
+}
+.tpp-icon-arrow-right::after {
+	-webkit-mask: url(tpp-icon/move-right.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/move-right.svg) center center / cover no-repeat;
+}
+.tpp-icon-arrow-up::after {
+	-webkit-mask: url(tpp-icon/move-up.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/move-up.svg) center center / cover no-repeat;
+}
+.tpp-icon-arrow-down::after {
+	-webkit-mask: url(tpp-icon/move-down.svg) center center / cover no-repeat;
+	mask: url(tpp-icon/move-down.svg) center center / cover no-repeat;
+}
+.tpp-icon-save {
+	background: var(--color-accent-default, #3288c3);
+}
+.tpp-icon-save::after {
+	-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.89 12.78l4.2 4.19 8.02-9.94"/></svg>') center center / cover no-repeat;
+}
+.tpp-icon-cancel::after {
+	-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M7 17L17 7"/></svg>') center center / cover no-repeat;
+}
+
+.tpp-button ul {
+	display: none;
+	z-index: 1;
+	margin: 0; padding: 2px;
+	list-style-type: none;
+	position: absolute;
+	top: 23px; right: 0;
+	border: 1px solid #C9CBCC;
+	background-color: #fff;
+	color: #666;
+	font: normal 11px/20px Arial, Helvetica, sans-serif;
+	text-align: left;
+}
+.tpp-button:hover ul {
+	display: block;
+}
+.tpp-button li {
+	cursor: pointer;
+	padding: 0 25px 0 5px;
+	white-space: nowrap;
+}
+.tpp-button li:hover {
+	background-color: #f0f0f0;
+}
+
+[data-preview-id] {
+	min-height: 23px;
+}
+
+/* new styles */
+.tpp-buttons {
+	background: #46446B;
+	border: 0;
+}
+
+.tpp-buttons-inline-edit {
+	z-index: 99999;
+	top: -1em;
+	display: flex;
+}
+
+.tpp-placeholder {
+	margin: 10px;
+	padding: 50px 20px;
+	text-align: center;
+	font: bold 20px/1.2 Arial, Helvetica, sans-serif;
+	color: #fff;
+	border: 5px solid rgb(49, 47, 65);
+	background: rgb(101, 99, 131);
+	box-shadow: 0 0 10px #000;
+}
+
+.tpp-disabled-node {
+	pointer-events: none;
+	filter: blur(2px);
+}
+
+.tpp-drop-target {
+	position: absolute;
+	z-index: 9999999999;
+	top: 0; left: 0; width: 0; height: 5px;
+	margin-top: -2.5px;
+	box-shadow: 0 0 3px rgba(0,0,0,.5);
+	background: #3288C3B0;
+	transition: all 200ms ease-out;
+}
+
+.fs-change-detected {
+	border: 1px solid #b61867;
+}
+
+.fs-changemask-solid {
+	position: absolute;
+	z-index: 10001;
+	background-color: #525967;
+	opacity: 0.25;
+	filter: alpha(opacity = 0.25);
+}
